@@ -6,7 +6,6 @@ module.exports = (pgp) => {
         'user_lastname'
     ],
     {table: 'user_table'})
-
-    console.log(userColumn);
+    
     return userColumn;
 }

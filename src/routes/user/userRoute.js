@@ -3,15 +3,13 @@ const userController = require('./../../controllers/user/userController');
 
 const router = Router();
 
-//GetAll
-router.get('/', userController.getAllUser);
 //GetOne
-router.get('/:id', userController.getUser);
+router.post('/Login', userController.getUser);
 //Save
-router.post('/', userController.insertUser);
-//Delete
-router.delete('/:id', userController.deleteUser);
+router.post('/Register', userController.insertUser);
 //Update
 router.put('/:id', userController.updateUser);
+//CheckToken
+router.post('/checkToken', userController.checkToken);
 
 module.exports = router;

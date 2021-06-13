@@ -2,7 +2,6 @@ const productController = {};
 const product = require('./../../models/product/productModel');
 const pg = require('./../../models/index');
 const queries = require('./../../config/queries');
-const { json } = require('express');
 
 productController.getAllProduct = async (req, res) => {
     pg.db.many(queries.getAllProducts)
@@ -23,7 +22,7 @@ productController.getAllProduct = async (req, res) => {
 }
 
 productController.getProduct = async (req, res) => {
-    pg.db.many(queries.getProduct(req.body.table_name, req.params.id))
+    pg.db.many(queries.getProduct(req.params.id))
     .then((r)=>{
         res.status(200).json({
             status: 'ok',
@@ -40,7 +39,6 @@ productController.getProduct = async (req, res) => {
 }
 
 productController.insertProduct = async(req, res) => {
-    console.log(req.body);
     const query = pg.pgp.helpers.insert(req.body, product(pg.pgp))
     await pg.db.any(query)
     .then((r)=>{
