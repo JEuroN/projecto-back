@@ -56,11 +56,27 @@ userController.insertUser = async(req, res) => {
 }
 
 userController.updateUser = async(req, res) => {
-
+    const {user_username, user_firstname, user_lastname} = req.body
+    req.body.user_password = await encrypt(req.body.user_password, 10);
+    const query = pg.pgp.helpers.update(req.body, userModel(pg.pgp)) + queries.updateUser(user_username, user_firstname, user_lastname); 
+    pg.db.any(query)
+    .then((r)=>{
+        res.status(200).json({
+            status: 'ok',
+            statusCode: 200,
+        })
+    })
+    .catch((err)=>{
+        res.status(400).json({
+            status: 'bad request',
+            statusCode: 400,
+        })
+    })
 }
 
 userController.checkToken = async(req, res) => {
     const token = verifyToken(req.body.token)
+    console.log(token);
     if(token){
         res.status(200).json({
             status: 'ok',

@@ -58,7 +58,7 @@ productController.insertProduct = async(req, res) => {
 }
 
 productController.updateProduct = (req, res) => {
-    const query = pg.pgp.helpers.update(req.body, product(pg.pgp)) + ` WHERE product_barcode = '${req.params.id}'`
+    const query = pg.pgp.helpers.update(req.body, product(pg.pgp)) + ` WHERE product_id = '${req.params.id}'`
     pg.db.oneOrNone(query)
     .then((r)=>{
         res.status(200).json({

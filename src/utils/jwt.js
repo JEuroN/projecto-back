@@ -12,6 +12,7 @@ const createToken = async (username) => {
 
 const verifyToken = (token) => {
     const verify = jwt.verify(token, 'aguacate', (err, token) =>{
+        console.log(err, token);
         if(err) 
             return false;
         else 

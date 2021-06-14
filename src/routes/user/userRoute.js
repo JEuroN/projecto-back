@@ -8,7 +8,7 @@ router.post('/Login', userController.getUser);
 //Save
 router.post('/Register', userController.insertUser);
 //Update
-router.put('/:id', userController.updateUser);
+router.put('/', userController.updateUser);
 //CheckToken
 router.post('/checkToken', userController.checkToken);
 
