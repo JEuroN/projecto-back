@@ -3,15 +3,15 @@ CREATE SEQUENCE public.product_table_product_id_seq;
 
 CREATE TABLE public.product_table (
                 product_id INTEGER NOT NULL DEFAULT nextval('public.product_table_product_id_seq'),
-                handle VARCHAR NOT NULL,
-                title VARCHAR NOT NULL,
-                description VARCHAR NOT NULL,
-                sku VARCHAR NOT NULL,
-                grams REAL NOT NULL,
-                stock INTEGER NOT NULL,
-                price INTEGER NOT NULL,
-                compare_price INTEGER NOT NULL,
-                barcode VARCHAR NOT NULL,
+                product_handle VARCHAR NOT NULL,
+                product_title VARCHAR NOT NULL,
+                product_description VARCHAR NOT NULL,
+                product_sku VARCHAR NOT NULL,
+                product_grams FLOAT NOT NULL,
+                product_stock INTEGER NOT NULL,
+                product_price INTEGER NOT NULL,
+                product_compare_price INTEGER NOT NULL,
+                product_barcode VARCHAR,
                 CONSTRAINT product_table_pk PRIMARY KEY (product_id)
 );
 

@@ -14,10 +14,10 @@ app.use('/user', require('./routes/user/userRoute'));
 app.use('/product', require('./routes/products/productsRoute'));
 
 app.listen(port, () =>{
-    /* try{
+    try{
         createArrayWithExcel();
     }catch(e){
         console.log('Base de datos llena!');
-    } */
+    }
     console.log(`App listening on port ${port}!`)
 })

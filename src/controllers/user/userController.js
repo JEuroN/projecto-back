@@ -10,6 +10,7 @@ userController.getUser = async(req, res) => {
     pg.db.one(queries.getUser(user_username))
     .then(async (r)=>{
         const compare_result = await compare(user_password, r.user_password);
+        console.log(compare_result)
         if(compare_result){
             let token = await createToken(user_username);
             res.status(200).json({
